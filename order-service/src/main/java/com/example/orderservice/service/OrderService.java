@@ -21,13 +21,14 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void placeOrder(OrderRequest orderRequest){
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
 
         System.out.println(orderRequest);
+
         // mapping the 'orderLineItems' that is inside 'orderRequest'
         List<OrderLineItems> orderLineItems = orderRequest.getOrderLineItemsDtoList()
                 .stream()
@@ -46,8 +47,9 @@ public class OrderService {
         // get method because inside the inventory controller we defined a get-mapping request
         // webclient will format the uri
         // in this format: // http://localhost:8082/api/v2/inventory?skuCode=iphone-13&skuCode=iphone13-red
-        InventoryResponse[] inventoryResponsesArray = webClient.get()
-                .uri("http://localhost:8082/api/v1/inventory",
+        InventoryResponse[] inventoryResponsesArray = webClientBuilder.build().get()
+//                .uri("http://localhost:8082/api/v1/inventory",
+                .uri("http://inventory-service/api/v1/inventory", // becahse we named the application as inv-serv in pom file
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                 .retrieve() // retrieving the response
                 .bodyToMono(InventoryResponse[].class) // by default webclient will make an async request but we need a synch. request
@@ -65,7 +67,7 @@ public class OrderService {
             // saving into order repo
             orderRepository.save(order);
         } else {
-            throw new IllegalArgumentException("Product is not in stock, please try again later");
+            throw new IllegalArgumentException("Product is not in stock, please try again later.");
         }
     }
 

@@ -18,7 +18,7 @@ public class InventoryService {
 
     @Transactional(readOnly = true)
     public List<InventoryResponse> isInStock(List<String> skuCode) {
-        // find all the inventory objects fro the given skuCode
+        // find all the inventory objects for the given skuCode
         return inventoryRepository.findBySkuCodeIn(skuCode)
                 .stream()
                 // mapping the inventory objects to the inventory response object
