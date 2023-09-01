@@ -9,7 +9,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 // Using Web Flux Security
 @Configuration
 // Because the Api Gateway Spring Cloud Gateway project is based on Spring Web Flux project
-// but not Spring Web MVC thats why we need to enable the Web Flux Security by @EnableWebFluxSecurity ann
+// but not Spring Web MVC that's why we need to enable the Web Flux Security by @EnableWebFluxSecurity ann
 @EnableWebFluxSecurity
 public class SecurityConfig {
 
