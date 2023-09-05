@@ -1,8 +1,11 @@
 package com.example.orderservice.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
 // JPA Entity

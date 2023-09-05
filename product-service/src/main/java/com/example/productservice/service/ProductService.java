@@ -58,8 +58,6 @@ public class ProductService {
 //        products.stream().map(product -> mapToProductResponse(product));
         // Because the method is inside the class we can use method reference instead of Lambda
         return  products.stream().map(this::mapToProductResponse).toList();
-
-
     }
 
     // Maps the Product Class to the ProductResponse Class

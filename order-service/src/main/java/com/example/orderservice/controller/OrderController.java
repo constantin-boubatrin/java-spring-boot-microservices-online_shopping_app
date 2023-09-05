@@ -22,13 +22,17 @@ public class OrderController {
     // will throw a TimeoutException
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    // the resilience4j will apply the CB logic/pattern to this particular method at each call
+    // the Resilience4j will apply the CB logic/pattern to this particular method at each call
     @CircuitBreaker(name = "inventory", fallbackMethod = "fallbackMethod")
     @TimeLimiter(name = "inventory") // the name should be the same as we provided inside the app.prop file
     @Retry(name = "inventory")
-    public CompletableFuture<String> planeOrder(@RequestBody OrderRequest orderRequest) {
+    public CompletableFuture<String> placeOrder(@RequestBody OrderRequest orderRequest) {
         return CompletableFuture.supplyAsync(() -> orderService.placeOrder(orderRequest));
     }
+
+//    public String planeOrder(@RequestBody OrderRequest orderRequest) {
+//        return orderService.placeOrder(orderRequest);
+//    }
 
     // We have one more parameter RuntimeException because when our call will fail will come with an exception,
     // and we will consume this exception into the fallbackMethod

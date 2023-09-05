@@ -1,5 +1,7 @@
 D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\model\Order.java
 D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\dto\OrderRequest.java
+D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\config\WebClientConfig.java
+D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\dto\InventoryResponse.java
 D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\controller\OrderController.java
 D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\model\OrderLineItems.java
 D:\PROGRAMMING\PROJECTS\java-spring-boot-microservices-online_shopping_app\order-service\src\main\java\com\example\orderservice\repository\OrderRepository.java

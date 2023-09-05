@@ -24,7 +24,7 @@ public class InventoryService {
     public List<InventoryResponse> isInStock(List<String> skuCode) {
         // Simulating the slow behavior to test Resilience4 Timeout Property
         log.info("Wait Started");
-        Thread.sleep(10000);
+//        Thread.sleep(10000);
         log.info("Wait Ended");
 
         // find all the inventory objects for the given skuCode
